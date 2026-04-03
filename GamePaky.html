@@ -47,10 +47,13 @@
         /* Contenitore Principale del Robot (posizionamento assoluto per la chat) */
         .robot-canvas {
             position: relative;
-            /* Dimensione basata su viewport: scala su tutti gli schermi */
-            width: 62vmin;
-            /* Mantiene le proporzioni originali 350:595 (1.7) = 62vmin x 105vmin */
-            height: 105vmin;
+            /* L'altezza guida il sizing: max 88vh (lascia spazio alla citazione in basso) */
+            height: 88vh;
+            /* La larghezza si calcola automaticamente dalle proporzioni originali 62:105 */
+            width: auto;
+            aspect-ratio: 62 / 105;
+            /* Sicurezza: non supera mai i bordi laterali */
+            max-width: 90vw;
             display: flex;
             justify-content: center;
             align-items: center;
