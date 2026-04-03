@@ -47,10 +47,10 @@
         /* Contenitore Principale del Robot (posizionamento assoluto per la chat) */
         .robot-canvas {
             position: relative;
-            width: 350px;
-            /* Adatta in base all'immagine */
-            height: 500px;
-            /* Adatta in base all'immagine */
+            /* Dimensione basata su viewport: scala su tutti gli schermi */
+            width: 62vmin;
+            /* Mantiene le proporzioni originali 350:595 (1.7) = 62vmin x 105vmin */
+            height: 105vmin;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -59,8 +59,9 @@
 
         /* Immagine del Robot Base */
         .robot-base {
-            max-width: 1400%;
-            height: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
             display: block;
             border-radius: 20px;
             /* Opzionale, per ammorbidire l'immagine */
@@ -101,7 +102,7 @@
         .message {
             padding: 6px 10px;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: clamp(9px, 1.5vmin, 14px);
             max-width: 80%;
         }
 
@@ -128,8 +129,8 @@
             flex-grow: 0;
             width: 60%;
             border: none;
-            padding: 15px;
-            font-size: 15px;
+            padding: clamp(6px, 1.5vmin, 15px);
+            font-size: clamp(10px, 1.8vmin, 15px);
             outline: none;
         }
 
@@ -416,7 +417,7 @@
 
     <div class="robot-canvas">
         <img src="https://raw.githubusercontent.com/cristianocapizzi/AIClub/main/Bunny.png" alt="Robot Pasquale AI"
-            style="width: 100%; height: 100%;">
+            class="robot-base">
         <div id="easter-egg-container">
             <div class="egg"></div>
         </div>
