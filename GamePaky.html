@@ -46,20 +46,17 @@
         }
 
         /* Contenitore Principale del Robot:
-           è un semplice wrapper che si adatta all'immagine */
+           inline-block: si stringe attorno all'immagine in modo affidabile */
         .robot-canvas {
             position: relative;
-            /* Si restringe attorno all'immagine */
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
+            display: inline-block;
         }
 
         /* Immagine del Robot Base:
-           è LEI che comanda il sizing — mai più alta di 88vh e mai più larga di 90vw */
+           80vh garantisce sempre ~10vh di margine sopra e sotto → orecchie sempre visibili */
         .robot-base {
-            max-height: 88vh;
-            max-width: 90vw;
+            max-height: 80vh;
+            max-width: 85vw;
             width: auto;
             height: auto;
             display: block;
