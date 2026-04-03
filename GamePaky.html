@@ -559,6 +559,23 @@
             }
         });
 
+        // --- AUTO-SCALE: garantisce che le orecchie siano sempre visibili ---
+        // L'immagine è 180% del canvas (500px) = 900px di altezza effettiva.
+        // Scala il canvas per far entrare tutto nell'87% del viewport height.
+        function fitRobot() {
+            const canvas = document.querySelector('.robot-canvas');
+            const img = canvas.querySelector('.robot-base');
+            // Altezza effettiva dell'immagine visualizzata (180% del canvas height)
+            const imageRenderedH = canvas.offsetHeight * 1.80;
+            const maxAllowedH = window.innerHeight * 0.87;
+            const scale = Math.min(1, maxAllowedH / imageRenderedH);
+            canvas.style.transformOrigin = 'center center';
+            canvas.style.transform = `scale(${scale})`;
+        }
+
+        fitRobot();
+        window.addEventListener('resize', fitRobot);
+
     </script>
 </body>
 
