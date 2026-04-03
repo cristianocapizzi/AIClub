@@ -33,6 +33,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
+            overflow: hidden; /* evita scrollbar indesiderate */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -44,30 +45,25 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Contenitore Principale del Robot (posizionamento assoluto per la chat) */
+        /* Contenitore Principale del Robot:
+           è un semplice wrapper che si adatta all'immagine */
         .robot-canvas {
             position: relative;
-            /* L'altezza guida il sizing: max 88vh (lascia spazio alla citazione in basso) */
-            height: 88vh;
-            /* La larghezza si calcola automaticamente dalle proporzioni originali 62:105 */
-            width: auto;
-            aspect-ratio: 62 / 105;
-            /* Sicurezza: non supera mai i bordi laterali */
-            max-width: 90vw;
-            display: flex;
+            /* Si restringe attorno all'immagine */
+            display: inline-flex;
             justify-content: center;
             align-items: center;
-            /* Riferimento per il posizionamento della chat e dell'uovo */
         }
 
-        /* Immagine del Robot Base */
+        /* Immagine del Robot Base:
+           è LEI che comanda il sizing — mai più alta di 88vh e mai più larga di 90vw */
         .robot-base {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            max-height: 88vh;
+            max-width: 90vw;
+            width: auto;
+            height: auto;
             display: block;
             border-radius: 20px;
-            /* Opzionale, per ammorbidire l'immagine */
         }
 
         /* L'interfaccia CHAT nella pancia */
